@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meme Coin Info</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #tokenInfo {
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      background-color: #f9f9f9;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    .token-data {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Meme Coin Information</h1>
+
+  <div id="tokenInfo" style="display:none;">
+    <div class="token-data"><strong>Name:</strong> <span id="tokenName"></span></div>
+    <div class="token-data"><strong>Ticker:</strong> <span id="tokenTicker"></span></div>
+    <div class="token-data"><strong>Price:</strong> <span id="tokenPrice"></span></div>
+    <div class="token-data"><strong>Description:</strong> <span id="tokenDescription"></span></div>
+    <div class="token-data"><img id="tokenImage" alt="Token Image" /></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    async function fetchTokenInfo() {
+      // Using the hardcoded token ID
+      const tokenId = "9QUYvUGiqCALxrMCyJrVYXtJSpt4BYzPRv5ZRjsdqzkh";
+      
+      const url = `https://pumpapi.fun/api/get_metadata/${tokenId}`;
+      try {
+        const response = await axios.get(url);
+        if (response.status === 200 && response.data) {
+          // Populate the token info
+          document.getElementById('tokenName').innerText = response.data.name;
+          document.getElementById('tokenTicker').innerText = response.data.ticker;
+          document.getElementById('tokenPrice').innerText = response.data.price || 'N/A';
+          document.getElementById('tokenDescription').innerText = response.data.description || 'No description available.';
+          document.getElementById('tokenImage').src = response.data.image || '';
+
+          document.getElementById('tokenInfo').style.display = 'block';
+        } else {
+          alert("Token not found or error fetching data.");
+        }
+      } catch (error) {
+        console.error("Error fetching token information:", error);
+        alert("An error occurred while fetching token information.");
+      }
+    }
+
+    // Fetch the token info on page load
+    window.onload = fetchTokenInfo;
+  </script>
+
+</body>
+</html>
+ 
