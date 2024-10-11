@@ -64,19 +64,44 @@
         }
 
         /* Heading styling */
-        #page-title {
+        #page-titleright {
         font-family: 'Fredoka One', cursive; /* Updated to a playful, fun font */
         font-size: 4em; /* Increased font size for a bolder look */
         text-align: center;
         color: #30e9ec; /* Fun, vibrant tomato color */
         background-color: rgba(235, 246, 246, 0.7); /* Brighter, playful yellow background */
-        padding: 20px 630px; /* Adjusted padding for balance */
-        border-radius: 20px; /* More rounded corners for a friendly look */
+        padding: 20px 330px; /* Adjusted padding for balance */
+        border-radius: 30px; /* More rounded corners for a friendly look */
         margin-bottom: 20px;
         text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4), 2px 2px 8px #e7d5de; /* Added a multi-layered shadow effect */
-        letter-spacing: 2px; /* Increased spacing for a more casual style */
+        
+        position: fixed; /* Make it stick to the top */
+        top: 2%; /* Position it at the top */
+        left: 45%; /* Align with the left edge */
+        letter-spacing: 3px; /* Increased spacing for a more casual style */
         transform: rotate(-0deg); /* Tilted the text for a quirky, fun look */
         z-index: 1;
+        box-sizing: border-box; /* Ensure padding and width are calculated correctly */
+    }
+
+    #page-titleleft {
+        font-family: 'Fredoka One', cursive; /* Updated to a playful, fun font */
+        font-size: 4em; /* Increased font size for a bolder look */
+        text-align: center;
+        color: #30e9ec; /* Fun, vibrant tomato color */
+        background-color: rgba(235, 246, 246, 0.7); /* Brighter, playful yellow background */
+        padding: 20px 330px; /* Adjusted padding for balance */
+        border-radius: 30px; /* More rounded corners for a friendly look */
+        margin-bottom: 20px;
+        text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4), 2px 2px 8px #e7d5de; /* Added a multi-layered shadow effect */
+        
+        position: fixed; /* Make it stick to the top */
+        top: 2%; /* Position it at the top */
+        right: 45%; /* Align with the left edge */
+        letter-spacing: 3px; /* Increased spacing for a more casual style */
+        transform: rotate(-0deg); /* Tilted the text for a quirky, fun look */
+        z-index: 1;
+        box-sizing: border-box; /* Ensure padding and width are calculated correctly */
     }
 
         /* Parent container with light background */
@@ -91,6 +116,7 @@
             padding: 40px;
             box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
             border-radius: 20px;
+            margin-top: 110px; /* Spacing between header and container */
             z-index: 1;
         }
 
@@ -180,7 +206,8 @@
     <div class="particle" style="top: 10%; left: 70%;"></div>
 
     <!-- Heading at the top, centered with background -->
-    <div id="page-title">PUMP & DUMP</div>
+    <div id="page-titleleft">PUMP </div>
+    <div id="page-titleright">DUMP</div>
 
     <!-- Parent container with light background -->
     <div id="container">
